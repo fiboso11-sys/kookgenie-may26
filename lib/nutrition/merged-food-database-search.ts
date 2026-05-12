@@ -4,7 +4,7 @@ import type { Database, FoodDatabaseRow } from "@/types/database";
 export function isUndefinedColumnPostgrestError(
   error: { code?: string; message?: string } | null | undefined,
 ): boolean {
-  return error?.code === "42703" || /\bdoes not exist\b/i.test(error.message ?? "");
+  return error?.code === "42703" || /\bdoes not exist\b/i.test(error?.message ?? "");
 }
 
 export function sanitizeFoodSearchToken(query: string) {
