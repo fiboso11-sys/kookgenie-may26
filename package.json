@@ -15,7 +15,10 @@
     "deps:check": "npm ls next react react-dom --depth=0",
     "deps:audit": "npm audit",
     "db:seed-emergency": "node scripts/gen-emergency-seed.mjs",
-    "db:food-search-grant-sql": "node -e \"const fs=require('fs');const p='supabase/migrations/20260523120000_search_food_database_anon_execute.sql';console.log('--- Paste into Supabase → SQL → New query ---\\n');console.log(fs.readFileSync(p,'utf8'));\""
+    "db:food-search-grant-sql": "node -e \"const fs=require('fs');const p='supabase/migrations/20260523120000_search_food_database_anon_execute.sql';console.log('--- Paste into Supabase → SQL → New query ---\\n');console.log(fs.readFileSync(p,'utf8'));\"",
+    "deploy:vercel": "npx vercel@latest deploy --prod",
+    "vercel:env:from-local": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/push-vercel-supabase-env-from-local.ps1",
+    "vercel:env:bypass-from-local": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/push-vercel-auth-bypass-env-from-local.ps1"
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.2.9",

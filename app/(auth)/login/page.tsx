@@ -103,6 +103,14 @@ export default function LoginPage() {
           ← Back to app
         </Link>
       </p>
+      {(process.env.NEXT_PUBLIC_SHOW_AUTH_BYPASS_UI === "true" ||
+        process.env.NEXT_PUBLIC_SHOW_AUTH_BYPASS_UI === "1") && (
+        <p className="mt-3 text-center text-sm text-kg-neutral-800/60">
+          <Link href="/login/bypass" className="font-medium text-kg-primary hover:underline">
+            Sign in without email (bypass)
+          </Link>
+        </p>
+      )}
     </div>
   );
 }
