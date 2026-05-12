@@ -1,21 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function LoginPage() {
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "done"
-  >("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "done">("idle");
+  const router = useRouter();
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
     setStatus("loading");
 
-    // simulate small delay for UX
     setTimeout(() => {
       setStatus("done");
+
+      // 🚀 GO TO MAIN APP
+      router.push("/"); // change to "/home" if needed
     }, 500);
   }
 
@@ -35,15 +37,13 @@ export default function LoginPage() {
           disabled={status === "loading"}
           className="w-full rounded-xl bg-black py-3 text-sm font-semibold text-white"
         >
-          {status === "loading"
-            ? "Loading..."
-            : "Continue to App"}
+          {status === "loading" ? "Loading..." : "Continue to App"}
         </button>
       </form>
 
       {status === "done" && (
         <p className="mt-4 text-sm text-green-600">
-          Guest mode activated ✓
+          Guest mode activated ✓ Redirecting...
         </p>
       )}
 
