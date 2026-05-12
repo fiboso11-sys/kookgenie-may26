@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KookGenie AI — Smart Cooking & Health</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <nav class="navbar">
+      <a href="#top" class="logo">
+        <span class="logo-mark">K</span>
+        <span>KookGenie</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#recipe-generator">Recipes</a></li>
+        <li><a href="#lessons">Learn</a></li>
+        <li><a href="#nutrition">Nutrition</a></li>
+        <li><a href="#fitness">Fitness</a></li>
+        <li><a href="#trackers">Trackers</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+      <a href="#recipe-generator" class="btn btn-primary btn-sm nav-cta">Start Cooking</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-badge">Demo mode · No API required</p>
+      <h1 class="hero-title">KookGenie AI</h1>
+      <p class="hero-subtitle">Your Smart AI Cooking, Nutrition & Fitness Companion</p>
+      <div class="hero-actions">
+        <a href="#recipe-generator" class="btn btn-primary btn-lg">Start Cooking</a>
+        <button type="button" class="btn btn-outline btn-lg" id="hero-ask-kgenie">Ask KGenie</button>
+        <a href="#gallery" class="btn btn-ghost btn-lg">Explore Recipes</a>
+      </div>
+    </div>
+    <div class="hero-wave" aria-hidden="true"></div>
+  </section>
+
+  <section class="section features" id="features">
+    <div class="container">
+      <header class="section-header">
+        <h2>Everything you need</h2>
+        <p>AI-powered tools for your kitchen and wellness — all working in this interactive demo.</p>
+      </header>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">🍳</div>
+          <h3>AI Cooking Assistant</h3>
+          <p>Chat with KGenie for instant meal ideas, substitutions, and timing tips.</p>
+          <button type="button" class="btn btn-secondary btn-sm open-chat-from-card">Open KGenie</button>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">✨</div>
+          <h3>AI Recipe Generator</h3>
+          <p>Turn whatever is in your fridge into a full recipe with steps and nutrition estimates.</p>
+          <a href="#recipe-generator" class="btn btn-secondary btn-sm">Generate</a>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">📊</div>
+          <h3>AI Nutrition Analyzer</h3>
+          <p>Get a quick macro breakdown and health score for any meal description.</p>
+          <a href="#nutrition" class="btn btn-secondary btn-sm">Analyze</a>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">💪</div>
+          <h3>AI Fitness Coach</h3>
+          <p>Personalized workout ideas, daily activity tips, and meal alignment for your goal.</p>
+          <a href="#fitness" class="btn btn-secondary btn-sm">Get plan</a>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">📖</div>
+          <h3>Cooking Learning Mode</h3>
+          <p>Step-by-step beginner lessons from knife skills to baking basics.</p>
+          <a href="#lessons" class="btn btn-secondary btn-sm">Start learning</a>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">📈</div>
+          <h3>Health Tracker</h3>
+          <p>Log calories, water, workouts, meals, and weight — saved locally in your browser.</p>
+          <a href="#trackers" class="btn btn-secondary btn-sm">Open dashboard</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section recipe-gen" id="recipe-generator">
+    <div class="container">
+      <header class="section-header">
+        <h2>AI Recipe Generator</h2>
+        <p>List ingredients — KookGenie builds a demo recipe with time, calories, and steps.</p>
+      </header>
+      <div class="recipe-gen-layout">
+        <div class="recipe-gen-form card-elevated">
+          <label for="ingredients-input">Ingredients</label>
+          <textarea id="ingredients-input" rows="4" placeholder="eggs, onion, tomato"></textarea>
+          <button type="button" class="btn btn-primary" id="btn-generate-recipe">Generate Recipe</button>
+        </div>
+        <div class="recipe-output card-elevated" id="recipe-output">
+          <div class="recipe-output-placeholder">
+            <img src="images/recipe-generated.svg" alt="" width="320" height="240" />
+            <p>Your generated recipe will appear here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lessons" id="lessons">
+    <div class="container">
+      <header class="section-header">
+        <h2>Cooking Learning Mode</h2>
+        <p>Beginner-friendly guides — tap a topic for step-by-step instructions.</p>
+      </header>
+      <div class="lesson-grid">
+        <button type="button" class="lesson-tile" data-lesson="basics">Cooking Basics</button>
+        <button type="button" class="lesson-tile" data-lesson="knife">Knife Skills</button>
+        <button type="button" class="lesson-tile" data-lesson="vegetables">How to Cut Vegetables</button>
+        <button type="button" class="lesson-tile" data-lesson="boiling">Boiling</button>
+        <button type="button" class="lesson-tile" data-lesson="frying">Frying</button>
+        <button type="button" class="lesson-tile" data-lesson="saute">Sauté</button>
+        <button type="button" class="lesson-tile" data-lesson="grilling">Grilling</button>
+        <button type="button" class="lesson-tile" data-lesson="baking">Baking</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section nutrition" id="nutrition">
+    <div class="container">
+      <header class="section-header">
+        <h2>AI Nutrition Analyzer</h2>
+        <p>Describe a meal — get demo macros and a simple health score.</p>
+      </header>
+      <div class="analyzer-layout card-elevated">
+        <label for="meal-input">Meal description</label>
+        <input type="text" id="meal-input" placeholder="chicken rice" />
+        <button type="button" class="btn btn-primary" id="btn-analyze-nutrition">Analyze</button>
+        <div class="nutrition-result" id="nutrition-result" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fitness" id="fitness">
+    <div class="container">
+      <header class="section-header">
+        <h2>AI Fitness Coach</h2>
+        <p>Pick a goal — receive a sample workout plan, activity tips, and meal ideas.</p>
+      </header>
+      <div class="fitness-layout card-elevated">
+        <label for="fitness-goal">Goal</label>
+        <select id="fitness-goal">
+          <option value="weight_loss">Weight Loss</option>
+          <option value="muscle_gain">Muscle Gain</option>
+          <option value="healthy_lifestyle">Healthy Lifestyle</option>
+        </select>
+        <button type="button" class="btn btn-primary" id="btn-fitness-plan">Get my plan</button>
+        <div class="fitness-result" id="fitness-result" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section trackers" id="trackers">
+    <div class="container">
+      <header class="section-header">
+        <h2>Trackers Dashboard</h2>
+        <p>Your data stays on this device (localStorage). Reset anytime per tracker.</p>
+      </header>
+      <div class="tracker-grid">
+        <div class="tracker-card card-elevated" data-tracker="calories">
+          <h3>Daily Calories</h3>
+          <p class="tracker-today" id="tracker-calories-today">Today: 0 kcal</p>
+          <div class="tracker-input-row">
+            <input type="number" min="0" step="1" placeholder="Add kcal" class="tracker-field" />
+            <button type="button" class="btn btn-secondary btn-sm tracker-add">Add</button>
+          </div>
+          <ul class="tracker-list" id="tracker-calories-list"></ul>
+          <button type="button" class="btn btn-ghost btn-sm tracker-clear">Clear today</button>
+        </div>
+        <div class="tracker-card card-elevated" data-tracker="water">
+          <h3>Water Intake</h3>
+          <p class="tracker-today" id="tracker-water-today">Today: 0 glasses</p>
+          <div class="tracker-input-row">
+            <input type="number" min="0" step="1" placeholder="Glasses (250ml)" class="tracker-field" />
+            <button type="button" class="btn btn-secondary btn-sm tracker-add">Add</button>
+          </div>
+          <ul class="tracker-list" id="tracker-water-list"></ul>
+          <button type="button" class="btn btn-ghost btn-sm tracker-clear">Clear today</button>
+        </div>
+        <div class="tracker-card card-elevated" data-tracker="workout">
+          <h3>Workout</h3>
+          <p class="tracker-note">Log sessions</p>
+          <div class="tracker-input-row tracker-full">
+            <input type="text" placeholder="e.g. 30 min walk" class="tracker-field" />
+            <button type="button" class="btn btn-secondary btn-sm tracker-add">Log</button>
+          </div>
+          <ul class="tracker-list" id="tracker-workout-list"></ul>
+          <button type="button" class="btn btn-ghost btn-sm tracker-clear">Clear all</button>
+        </div>
+        <div class="tracker-card card-elevated" data-tracker="meals">
+          <h3>Meals</h3>
+          <p class="tracker-note">Quick meal log</p>
+          <div class="tracker-input-row tracker-full">
+            <input type="text" placeholder="e.g. Oatmeal + berries" class="tracker-field" />
+            <button type="button" class="btn btn-secondary btn-sm tracker-add">Log</button>
+          </div>
+          <ul class="tracker-list" id="tracker-meals-list"></ul>
+          <button type="button" class="btn btn-ghost btn-sm tracker-clear">Clear all</button>
+        </div>
+        <div class="tracker-card card-elevated tracker-span" data-tracker="weight">
+          <h3>Weight Tracker</h3>
+          <p class="tracker-note">Track progress over time</p>
+          <div class="tracker-input-row">
+            <input type="number" min="0" step="0.1" placeholder="Weight (kg or lb)" class="tracker-field" />
+            <button type="button" class="btn btn-secondary btn-sm tracker-add">Save</button>
+          </div>
+          <ul class="tracker-list" id="tracker-weight-list"></ul>
+          <button type="button" class="btn btn-ghost btn-sm tracker-clear">Clear history</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gallery" id="gallery">
+    <div class="container">
+      <header class="section-header">
+        <h2>Recipe Gallery</h2>
+        <p>Curated ideas with quick recipes — perfect for inspiration.</p>
+      </header>
+      <div class="gallery-grid">
+        <article class="gallery-card">
+          <img src="images/recipe-salad.svg" alt="Healthy salad illustration" width="400" height="240" />
+          <div class="gallery-body">
+            <h3>Healthy Salad</h3>
+            <p>Mixed greens, cherry tomatoes, cucumber, lemon vinaigrette. Toss and serve chilled.</p>
+          </div>
+        </article>
+        <article class="gallery-card">
+          <img src="images/recipe-bowl.svg" alt="Protein bowl illustration" width="400" height="240" />
+          <div class="gallery-body">
+            <h3>Protein Bowl</h3>
+            <p>Quinoa base, grilled tofu or chicken, edamame, avocado, sesame dressing.</p>
+          </div>
+        </article>
+        <article class="gallery-card">
+          <img src="images/recipe-chicken.svg" alt="Grilled chicken illustration" width="400" height="240" />
+          <div class="gallery-body">
+            <h3>Grilled Chicken</h3>
+            <p>Marinate 1 hr, grill 6–8 min per side. Rest 5 min. Pair with roasted vegetables.</p>
+          </div>
+        </article>
+        <article class="gallery-card">
+          <img src="images/recipe-stirfry.svg" alt="Veggie stir fry illustration" width="400" height="240" />
+          <div class="gallery-body">
+            <h3>Veggie Stir Fry</h3>
+            <p>High heat, oil smoke point, aromatics first, veggies by cook time, soy-ginger finish.</p>
+          </div>
+        </article>
+        <article class="gallery-card">
+          <img src="images/recipe-smoothie.svg" alt="Smoothie bowl illustration" width="400" height="240" />
+          <div class="gallery-body">
+            <h3>Smoothie Bowl</h3>
+            <p>Blend frozen berries, banana, Greek yogurt; top with granola and chia.</p>
+          </div>
+        </article>
+        <article class="gallery-card">
+          <img src="images/recipe-toast.svg" alt="Avocado toast illustration" width="400" height="240" />
+          <div class="gallery-body">
+            <h3>Avocado Toast</h3>
+            <p>Smashed avocado, lime, chili flakes on sourdough. Add poached egg optional.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark">K</span>
+        <div>
+          <strong>KookGenie AI</strong>
+          <p>Smart Cooking with AI</p>
+        </div>
+      </div>
+      <div class="footer-columns">
+        <div>
+          <h4>Features</h4>
+          <ul>
+            <li><a href="#features">Assistant</a></li>
+            <li><a href="#recipe-generator">Generator</a></li>
+            <li><a href="#nutrition">Nutrition</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Recipes</h4>
+          <ul>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#recipe-generator">Create</a></li>
+            <li><a href="#lessons">Lessons</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Health</h4>
+          <ul>
+            <li><a href="#trackers">Trackers</a></li>
+            <li><a href="#nutrition">Analyzer</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Fitness</h4>
+          <ul>
+            <li><a href="#fitness">Coach</a></li>
+            <li><a href="#trackers">Workouts</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-link" aria-label="X (Twitter)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 4.98 18.02 3 15.4 3H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="footer-copy">© <span id="year"></span> KookGenie Demo. For demonstration only.</p>
+  </footer>
+
+  <button type="button" class="fab-kgenie" id="fab-kgenie" aria-label="Open KGenie chat">KGenie</button>
+
+  <div class="chat-backdrop" id="chat-backdrop" hidden></div>
+  <aside class="chat-panel" id="chat-panel" aria-hidden="true" role="dialog" aria-label="KGenie chat">
+    <div class="chat-header">
+      <div>
+        <strong>KGenie</strong>
+        <span class="chat-status">Demo AI</span>
+      </div>
+      <button type="button" class="chat-close" id="chat-close" aria-label="Close chat">×</button>
+    </div>
+    <div class="chat-suggestions">
+      <span>Try:</span>
+      <button type="button" class="chip" data-prompt="What can I cook with eggs?">Eggs</button>
+      <button type="button" class="chip" data-prompt="Give me a healthy breakfast">Breakfast</button>
+      <button type="button" class="chip" data-prompt="High protein meal">High protein</button>
+      <button type="button" class="chip" data-prompt="Weight loss meal">Weight loss</button>
+    </div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <form class="chat-form" id="chat-form">
+      <input type="text" id="chat-input" placeholder="Ask KookGenie…" autocomplete="off" />
+      <button type="submit" class="btn btn-primary btn-sm">Send</button>
+    </form>
+  </aside>
+
+  <div class="modal-backdrop" id="lesson-backdrop" hidden></div>
+  <div class="modal" id="lesson-modal" role="dialog" aria-modal="true" aria-labelledby="lesson-title" hidden>
+    <button type="button" class="modal-close" id="lesson-close" aria-label="Close">×</button>
+    <h2 id="lesson-title"></h2>
+    <ol class="lesson-steps" id="lesson-steps"></ol>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

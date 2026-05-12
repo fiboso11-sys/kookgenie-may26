@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+/* Semantic UI tokens — use Tailwind classes: bg-kg-surface, text-kg-muted, border-kg-border, etc. */
+:root {
+  --kg-surface: #f3f4f6;
+  --kg-elevated: #ffffff;
+  --kg-foreground: #111827;
+  --kg-muted: #4b5563;
+  --kg-subtle: #6b7280;
+  --kg-border: rgba(17, 24, 39, 0.1);
+  --kg-input: #ffffff;
+  --kg-ring-track: rgba(0, 0, 0, 0.11);
+  --kg-chart-grid: rgba(0, 0, 0, 0.08);
+  --kg-chart-axis: #4b5563;
+}
+
+.dark {
+  --kg-surface: #111827;
+  --kg-elevated: #1f2937;
+  --kg-foreground: #f9fafb;
+  --kg-muted: #d1d5db;
+  --kg-subtle: #9ca3af;
+  --kg-border: rgba(255, 255, 255, 0.12);
+  --kg-input: #0f172a;
+  --kg-ring-track: rgba(255, 255, 255, 0.15);
+  --kg-chart-grid: rgba(255, 255, 255, 0.1);
+  --kg-chart-axis: #e5e7eb;
+}
+
+@theme {
+  --color-kg-primary: #16a34a;
+  --color-kg-secondary: #065f46;
+  --color-kg-accent: #f97316;
+  --color-kg-neutral-50: #ffffff;
+  --color-kg-neutral-100: #f5f5f5;
+  --color-kg-neutral-800: #1f2937;
+  --color-kg-surface: var(--kg-surface);
+  --color-kg-elevated: var(--kg-elevated);
+  --color-kg-foreground: var(--kg-foreground);
+  --color-kg-muted: var(--kg-muted);
+  --color-kg-subtle: var(--kg-subtle);
+  --color-kg-border: var(--kg-border);
+  --color-kg-input: var(--kg-input);
+  --color-kg-ring-track: var(--kg-ring-track);
+  --color-kg-chart-grid: var(--kg-chart-grid);
+  --color-kg-chart-axis: var(--kg-chart-axis);
+  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* iOS PWA: reduce rubber-band flash; keep scrolling smooth */
+body {
+  font-family: var(--font-body);
+  color: var(--kg-foreground);
+  background-color: var(--kg-surface);
+  padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Readable placeholders in dark mode (browser defaults are often too faint). */
+input::placeholder,
+textarea::placeholder {
+  color: var(--kg-subtle);
+  opacity: 1;
+}
+
+/* Prevent iOS focus zoom on small inputs (keep ≥16px on form controls) */
+@media (max-width: 640px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/** Consistent elevated card shells — prefer these over raw bg-white + border opacity. */
+@layer components {
+  .kg-card {
+    @apply rounded-2xl border border-kg-border bg-kg-elevated text-kg-foreground shadow-sm;
+  }
+  .kg-card-dashed {
+    @apply rounded-2xl border border-dashed border-kg-border bg-kg-elevated text-kg-foreground shadow-sm;
+  }
+}

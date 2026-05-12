@@ -1,0 +1,54 @@
+{
+  "name": "kookgenie",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "reinstall": "powershell -ExecutionPolicy Bypass -File ./scripts/reinstall.ps1",
+    "deps:check": "npm ls next react react-dom --depth=0",
+    "deps:audit": "npm audit",
+    "db:seed-emergency": "node scripts/gen-emergency-seed.mjs",
+    "db:food-search-grant-sql": "node -e \"const fs=require('fs');const p='supabase/migrations/20260523120000_search_food_database_anon_execute.sql';console.log('--- Paste into Supabase → SQL → New query ---\\n');console.log(fs.readFileSync(p,'utf8'));\""
+  },
+  "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.9",
+    "@google/generative-ai": "^0.24.0",
+    "@hookform/resolvers": "^3.10.0",
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.49.8",
+    "framer-motion": "^11.18.0",
+    "next": "15.5.18",
+    "next-themes": "^0.4.4",
+    "openai": "^4.104.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.59.0",
+    "recharts": "^2.15.1",
+    "server-only": "^0.0.1",
+    "zod": "^3.24.2"
+  },
+  "overrides": {
+    "next": "15.5.18",
+    "rollup": "2.79.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.0.14",
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.0.11",
+    "@types/react-dom": "^19.0.4",
+    "eslint": "^9.28.0",
+    "eslint-config-next": "15.5.18",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.14",
+    "typescript": "~5.8.3"
+  }
+}
+
